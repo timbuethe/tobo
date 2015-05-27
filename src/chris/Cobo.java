@@ -2,22 +2,27 @@ package chris;
 
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
+import robocode.*;
+
 
 public class Cobo extends Robot {
 
     public void run() {
         //noinspection InfiniteLoopStatement
-        while (true) {
-            ahead(100);
-            turnGunRight(360);
-            back(100);
-            turnGunRight(360);
-        }
+
+        do {
+            scan();
+        } while (true);
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
+
         fire(1);
     }
 
+    //
+    public void onHitWall(HitWallEvent e) {
+        turnLeft(180);
+    }
 }
 
