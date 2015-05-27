@@ -1,0 +1,6 @@
+
+syntax: glob
+
+robocode/robots/
+robocode/config/robocode.properties
+robocode/config/window.properties
