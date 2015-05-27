@@ -36,6 +36,10 @@ public class Robo extends AdvancedRobot {
             // save number of other robots
             numberOfRobots = getOthers();
 
+            // separate the rader movement from the gun's.
+            setAdjustRadarForGunTurn(true);
+
+            // scan for enemies
             turnRadarRight(360);
 
             /*
@@ -67,21 +71,14 @@ public class Robo extends AdvancedRobot {
 
         System.out.println("Heading: " + getHeading());
         System.out.println("Bearing: " + bearing);
-        //System.out.println("Bearing - Heading: " + bearing - getHeading());
 
-        turnLeft(bearing - getHeading());
+        if (bearing > 0) {
 
-        // turn perpendicular towards opponent
-        /*
-        if (getTurnRemaining() < 0) {
-            turnLeft(bearing);
-        } else if (getTurnRemaining() > 0) {
-            turnRight(bearing);
-        } else {
-            // do nothing for now
+        } else if (bearing < 0) {
+
         }
-        */
 
+        turnRight(bearing);
 
         fire(1);
     }
