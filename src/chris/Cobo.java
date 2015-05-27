@@ -10,19 +10,23 @@ public class Cobo extends Robot {
     public void run() {
         //noinspection InfiniteLoopStatement
 
-        do {
-            scan();
-        } while (true);
+        //Separate the rader movement from the gun's.
+        setAdjustRadarForGunTurn(true);
+        //Scan for the enemy
+        turnRadarRight(360);
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
+        double bearing = e.getBearing();
+        turnRight(bearing);
 
         fire(1);
     }
-
+/**
     //
     public void onHitWall(HitWallEvent e) {
         turnLeft(180);
     }
+ **/
 }
 
