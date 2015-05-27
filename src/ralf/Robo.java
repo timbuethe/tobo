@@ -65,10 +65,14 @@ public class Robo extends AdvancedRobot {
     public void onScannedRobot(ScannedRobotEvent e) {
         double bearing = e.getBearing();
 
-        System.out.println("Heading:" + getHeading());
-        System.out.println("Bearing:" + bearing);
+        System.out.println("Heading: " + getHeading());
+        System.out.println("Bearing: " + bearing);
+        //System.out.println("Bearing - Heading: " + bearing - getHeading());
+
+        turnLeft(bearing - getHeading());
 
         // turn perpendicular towards opponent
+        /*
         if (getTurnRemaining() < 0) {
             turnLeft(bearing);
         } else if (getTurnRemaining() > 0) {
@@ -76,6 +80,7 @@ public class Robo extends AdvancedRobot {
         } else {
             // do nothing for now
         }
+        */
 
 
         fire(1);
